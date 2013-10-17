@@ -34,10 +34,12 @@ class GitAdapter implements ScmAdapter {
     void commitInitialFiles(File location, String message) {
         def output = [GIT, "add", "."].execute([], location).text
         log.fine "Output from `git add`:"
+        log.fine "------------------------"
         log.fine output
 
         output = [GIT, "commit", "-m", message].execute([], location).text
         log.fine "Output from `git commit`:"
+        log.fine "------------------------"
         log.fine output
     }
 }
