@@ -32,9 +32,12 @@ class GitAdapter implements ScmAdapter {
      */
     @Override
     void commitInitialFiles(File location, String message) {
-        [GIT, "add", "."].execute([], location).waitFor()
-        println "Current status: " + [GIT, "status"].execute([], location).text
-        [GIT, "commit", "-m", message].execute([], location).waitFor()
-        println "Current status: " + [GIT, "status"].execute([], location).text
+        def output = [GIT, "add", "."].execute([], location).text
+        log.fine "Output from `git add`:"
+        log.fine output
+
+        output = [GIT, "commit", "-m", message].execute([], location).text
+        log.fine "Output from `git commit`:"
+        log.fine output
     }
 }

@@ -157,6 +157,7 @@ class CreateFunctionalSpec extends AbstractFunctionalSpec {
     def "lazybones creates git repository on --with-git"() {
         when: "creating a groovyapp with all options passed in"
         def args = [
+                "--verbose",
                 "create",
                 "test-tmpl",
                 "0.2",
