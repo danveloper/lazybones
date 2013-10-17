@@ -103,6 +103,8 @@ task packageReports(type: Zip) {
     destinationDir = buildDir
 }
 
+test.ignoreFailures = true
+integTests.ignoreFailures = true
 integTests.finalizedBy packageReports
 
 codenarc {
