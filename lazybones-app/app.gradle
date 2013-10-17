@@ -97,6 +97,12 @@ task integTests(type: Test) {
     }
 }
 
+task ciZip(type: Zip) {
+    into "reports", { from "build/reports" }
+    archiveName = "ci.zip"
+    destinationDir = buildDir
+}
+
 codenarc {
     configFile = rootProject.file("codenarc.groovy")
 }
